@@ -1,0 +1,141 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzContent]="modalContent"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzCancelText="Hủy"
+  nzOkText="Xác nhận"
+>
+  <ng-template #modalContent>
+    <nz-divider nzText="Chỉnh sửa" nzOrientation="left"></nz-divider>
+    <form nz-form>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">Tên trường</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input name="email" type="email" id="email" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">Font chữ</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+          <nz-select
+            [(ngModel)]="settingController.fontType"
+            (ngModelChange)="fontController.fontChange($event)"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <nz-option
+              *ngFor="let p of fontController.fontData"
+              [nzValue]="p"
+              [nzLabel]="p"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">Kiểu chữ</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+          <nz-select
+            [(ngModel)]="settingController.fontStyle"
+            (ngModelChange)="fontController.fontChange($event)"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <nz-option
+              *ngFor="let p of fontController.fontStyle"
+              [nzValue]="p"
+              [nzLabel]="p"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">Độ dài tối đa</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input
+            nz-input
+            name="email"
+            type="email"
+            id="email"
+            [(ngModel)]="settingController.fontSize"
+            [ngModelOptions]="{standalone: true}"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">Màu chữ</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input
+            nz-input
+            name="color"
+            type="color"
+            id="color"
+            [(ngModel)]="settingController.fontColor"
+            [ngModelOptions]="{standalone: true}"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-divider nzText="Chỉnh sửa" nzOrientation="left"> </nz-divider>
+      <div class="config-box">
+        <div nz-row>
+          <nz-switch
+            [(ngModel)]="disabledSwitch"
+            nzCheckedChildren="on"
+            nzUnCheckedChildren="off"
+            [ngModelOptions]="{standalone: true}"
+          ></nz-switch>
+        </div>
+        <div nz-row>
+          <div nz-col nzSpan="11">
+            <nz-slider
+              [nzDisabled]="!disabledSwitch"
+              (ngModelChange)="onSliderChange('l')"
+              [nzMin]="0"
+              [nzMax]="1000"
+              [nzStep]="0.01"
+              [nzMarks]="marksL"
+              [(ngModel)]="settingController.leftToPdf"
+              [ngModelOptions]="{ standalone: true }"
+            ></nz-slider>
+            <nz-slider
+              [nzDisabled]="!disabledSwitch"
+              (ngModelChange)="onSliderChange('t')"
+              [nzMin]="0"
+              [nzMax]="1000"
+              [nzStep]="0.01"
+              [nzMarks]="marksT"
+              [(ngModel)]="settingController.topToPdf"
+              [ngModelOptions]="{ standalone: true }"
+            ></nz-slider>
+          </div>
+          <div nz-col nzSpan="2"></div>
+          <div nz-col nzSpan="11">
+            <nz-slider
+              [nzDisabled]="!disabledSwitch"
+              (ngModelChange)="onSliderChange('w')"
+              [nzMin]="0"
+              [nzMax]="1000"
+              [nzStep]="0.01"
+              [nzMarks]="marksW"
+              [(ngModel)]="settingController.width"
+              [ngModelOptions]="{ standalone: true }"
+            ></nz-slider>
+            <nz-slider
+              [nzDisabled]="!disabledSwitch"
+              (ngModelChange)="onSliderChange('h')"
+              [nzMin]="0"
+              [nzMax]="1000"
+              [nzStep]="0.01"
+              [nzMarks]="marksH"
+              [(ngModel)]="settingController.height"
+              [ngModelOptions]="{ standalone: true }"
+            ></nz-slider>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+</nz-modal>

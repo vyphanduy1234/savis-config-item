@@ -1,0 +1,53 @@
+<div
+  id="rectangle"
+  #mydrag
+  [ngDraggable]="true"
+  inBounds="true"
+  [bounds]="bound"
+  (endOffset)="onMoveEnd($event)"
+  (movingOffset)="onMoving($event)"
+  (started)="onDragStart($event)"
+  (stopped)="onDragStop($event)"
+  ngResizable
+  rzHandles="n,w,e,s,se"
+  rzMinWidth="10"
+  rzMinHeight="10"
+  [rzAspectRatio]="setting.type == 'checkbox'"
+  [style.width.px]="setting.width"
+  [style.height.px]="setting.height"
+  rzAspectRatio="true"
+  (rzStop)="onResizeStop($event)"
+  (rzResizing)="onResizing($event)"
+  [position]="{ x: setting.leftToPdf, y: setting.topToPdf }"
+>
+  <div *ngIf="!isMoving" id="tool-tip">
+    <div class="tooltip-icon">
+      <i
+        nz-icon
+        id="btn-setting"
+        (mousedown)="openSetting()"
+        nzType="setting"
+      ></i>
+    </div>
+    <div class="tooltip-icon">
+      <i id="btn-remove" nz-icon (mousedown)="remove()" nzType="delete" ></i>
+    </div>
+  </div>
+  <span class="mandatory-icon">*</span>
+  <div *ngIf="isMoving" id="top-ruler" class="ruler"></div>
+  <div *ngIf="isMoving" id="right-ruler" class="ruler"></div>
+  <div *ngIf="isMoving" id="bottom-ruler" class="ruler"></div>
+  <div *ngIf="isMoving" id="left-ruler" class="ruler"></div>
+  <input
+    id="text-input"
+    [style.color]="setting.fontColor"
+    [style.font-size.px]="setting.fontSize"
+    [style.font-family]="setting.fontType"
+    [style.font-style]="setting.fontStyle"
+    [type]="setting.type"
+    [(ngModel)]="setting.hintData"
+    (blur)="onTextBlur()"
+    [ngModelOptions]="{ standalone: true }"
+  />
+</div>
+<app-setting (onApplySetting)="applySetting($event)" #itemModal></app-setting>

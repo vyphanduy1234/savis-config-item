@@ -46,10 +46,17 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/theme.less",
+              "src/styles.css",
+              "node_modules/angular2-draggable/css/resizable.min.css"
             ],
             "scripts": []
           },
@@ -144,6 +151,47 @@
           }
         }
       }
-    }},
+    },
+    "sv-config-item": {
+      "projectType": "library",
+      "root": "projects/sv-config-item",
+      "sourceRoot": "projects/sv-config-item/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/sv-config-item/tsconfig.lib.json",
+            "project": "projects/sv-config-item/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sv-config-item/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sv-config-item/src/test.ts",
+            "tsConfig": "projects/sv-config-item/tsconfig.spec.json",
+            "karmaConfig": "projects/sv-config-item/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sv-config-item/tsconfig.lib.json",
+              "projects/sv-config-item/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "savis-config-item"
 }

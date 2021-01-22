@@ -1,0 +1,137 @@
+
+#rectangle:hover > #tool-tip {
+  display: block;
+}
+
+.tooltip-icon {
+  margin: 0px auto;
+  width: 20px;
+  height: 20px;
+  float: left;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+#btn-setting{
+  background-color: thistle;
+  border-radius: 10px;
+
+}
+
+#btn-remove{
+  background-color: thistle;
+  border-radius: 10px;
+
+}
+
+#tool-tip {
+  position: absolute;
+  top: -22px;
+  right: 0px;
+  background-color: blue;
+  width: 40px;
+  height: 20px;
+  display: none;
+  z-index: 100;
+  background-color: transparent;
+}
+
+.ruler {
+  position: absolute;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.mandatory-icon {
+  position: absolute;
+  font-size: 7px;
+  color: #e03500;
+  right: 2px;
+  top: 2px;
+  z-index: 10;
+}
+
+#top-ruler {
+  top: -2px;
+  height: 2px;
+  width: 200vw;
+  left: -100vh;
+  right: -100vh;
+  border-top: 1px #ffb600 dotted;
+}
+
+#bottom-ruler {
+  bottom: -2px;
+  height: 2px;
+  width: 200vw;
+  left: -100vh;
+  right: -100vh;
+  border-bottom: 1px #ffb600 dotted;
+}
+
+#left-ruler {
+  left: -2px;
+  height: 200vh;
+  width: 2px;
+  top: -100vh;
+  bottom: -100vh;
+  border-left: 1px #ffb600 dotted;
+}
+
+#right-ruler {
+  right: -2px;
+  height: 200vh;
+  width: 2px;
+  top: -100vh;
+  bottom: -100vh;
+  border-right: 1px #ffb600 dotted;
+}
+
+#text-input {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background-color: lawngreen;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+  display: block;
+  overflow: hidden;
+}
+#text-input:focus {
+  outline: none;
+}
+
+/* abc */
+
+#rectangle {
+  border: 1px rgb(224, 11, 11) solid;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: move;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.ng-resizable-handle.ng-resizable-ne{
+  z-index: 100;
+}
+
+.ng-resizable-diagonal{
+  border-bottom: none;
+  border-left: none;
+}
+
+.ng-resizable-se{
+  right: -5px;
+  bottom: -5px;
+}
+

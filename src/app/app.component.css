@@ -1,0 +1,6 @@
+.container {
+  width: 600px;
+  height: 800px;
+  border: 1px rgb(228, 14, 14) solid;
+  margin: 0px auto;
+}
