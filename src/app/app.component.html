@@ -1,13 +1,25 @@
-<button (click)="addItem('text')">Add Item</button>
-<button (click)="addItem('checkbox')">Add Item checkbox</button>
-<button (click)="addItem('date')">Add Item date</button>
-<div class="container" #con>
-  <sv-config-item
-    [bound]="con"
-    *ngFor="let itemSetting of listItemSetting; let position = index"
-    [setting]="itemSetting"
-    [position]="position"
-    (onRemove)="onItemRemove($event)"
-    (onItemSettingUpdate)="onItemSettingUpdate($event)"
-  ></sv-config-item>
+<div class="main-container" nz-row>
+  <div class="left-container" nz-col nzSpan="4">
+    <button (click)="addItem('text')">Add Item</button>
+    <button (click)="addItem('checkbox')">Add Item checkbox</button>
+    <button (click)="addItem('date')">Add Item date</button>
+  </div>
+  <div class="pdf-container" nz-col nzSpan="16">
+    <div id="con" class="container" #con>
+      <sv-config-item
+        [bound]="con"
+        *ngFor="let itemSetting of listItemSetting; let position = index"
+        [setting]="itemSetting"
+        [position]="position"
+        (onRemove)="onItemRemove($event)"
+        (onItemSettingUpdate)="onItemSettingUpdate($event)"
+        (onItemClick)="onItemClick($event)"
+      ></sv-config-item>
+    </div>
+  </div>
+  <div class="right-container" nz-col nzSpan="4">
+    <button (click)="addItem('text')">Add Item</button>
+    <button (click)="addItem('checkbox')">Add Item checkbox</button>
+    <button (click)="addItem('date')">Add Item date</button>
+  </div>
 </div>

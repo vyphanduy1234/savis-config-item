@@ -18,3 +18,4 @@ export const DEFAULT_INPUT_TYPE_CHECKBOX_WIDTH: number = 16;
 export const DEFAULT_INPUT_TYPE_CHECKBOX_HEIGHT: number = 16;
 export const DEFAULT_INPUT_TYPE_DATE_WIDTH: number = 140;
 export const DEFAULT_INPUT_TYPE_DATE_HEIGHT: number = 16;
+export const DEFAULT_INPUT_BACKGROUND_COLOR: string = "#ebc907";

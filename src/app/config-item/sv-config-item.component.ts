@@ -1,5 +1,5 @@
-import { DEFAULT_INPUT_BACKGROUND_COLOR, INPUT_TYPE_CHECKBOX } from './models/global';
-import { SettingModel } from './models/setting';
+import { DEFAULT_INPUT_BACKGROUND_COLOR, INPUT_TYPE_CHECKBOX } from '../models/global';
+import { SettingModel } from '../models/setting';
 import {
   AfterViewInit,
   Component,

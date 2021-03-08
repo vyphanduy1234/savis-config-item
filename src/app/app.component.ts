@@ -29,13 +29,20 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
+  onItemClick(setting: any) {
+    console.log(setting);
+  }
+
   ngAfterViewInit(): void {}
   listItemSetting: SettingModel[] = [];
   @ViewChild('con') pdfViewer: ElementRef;
 
   addItem(type) {
     let rect = this.pdfViewer.nativeElement.getBoundingClientRect();
-    let newItem = new SettingModel(rect.x, rect.y, type)
+    console.log(this.pdfViewer.nativeElement.getBoundingClientRect());
+
+    let parent = this.pdfViewer.nativeElement as HTMLElement;
+    let newItem = new SettingModel(rect.x, rect.y, type);
     this._itemSettingService.addTemplate(newItem).subscribe((newComponent) => {
       this.listItemSetting.push(newComponent);
     });
@@ -44,7 +51,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(private _itemSettingService: ItemSettingService) {}
 
   onItemRemove(position) {
-
     let deletedItem = this.listItemSetting.splice(position, 1);
     console.log(deletedItem);
     this._itemSettingService
